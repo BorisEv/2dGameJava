@@ -38,10 +38,12 @@ public class GamePanel extends JPanel implements Runnable{
 	Thread gameThread;
 	KeyHandler keyH;
 	
-	public int[][] collisionsMap;
+	public int[][][] collisionsMap;
 	TileManager tileM;
 	public CollisionCheck colCheck;
 	
+	public int worldNumber;
+	public int numberOfWorlds;
 	public Player player;
 	public Human human1;
 	public Door door1;
@@ -54,14 +56,16 @@ public class GamePanel extends JPanel implements Runnable{
 		this.setFocusable(true);		
 		keyH = new KeyHandler();
 		this.addKeyListener(keyH);
+		worldNumber = 1;
+		numberOfWorlds = 2;
 		
-		collisionsMap = new int[maxWorldCol][maxWorldRow];
+		collisionsMap = new int[numberOfWorlds][maxWorldCol][maxWorldRow];
 		tileM = new TileManager(this);
 		colCheck= new CollisionCheck(this);
 		player = new Player(this, keyH, 11*tileSize, 6*tileSize, 4, 2);
 		human1 = new Human(this,6*tileSize,6*tileSize,4,1);
 		door1 = new Door(5*tileSize,8*tileSize,"door1_close.png", this, keyH);
-		key1 = new MyKey(15*tileSize, 5*tileSize, door1, "/objects/key.png", this, keyH);
+		key1 = new MyKey(19*tileSize, 7*tileSize, door1, "/objects/key.png", this, keyH);
 		door1.key = key1;
 	}
 
@@ -93,7 +97,14 @@ public class GamePanel extends JPanel implements Runnable{
 		
 	}
 	
-	public void update() {		
+	public void update() {
+		if(keyH.spaceTyped) {
+			keyH.spaceTyped = false;
+			worldNumber++;
+			if(worldNumber>numberOfWorlds) {
+				worldNumber = 1;
+			}
+		}
 		player.update();
 		human1.update();
 		key1.update();

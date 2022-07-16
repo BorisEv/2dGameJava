@@ -26,7 +26,8 @@ public class Door extends MyObject{
 		this.absY = absY;
 		this.gp = gp;
 		this.keyH = keyH;
-		gp.collisionsMap[absX/gp.tileSize][absY/gp.tileSize] = 1;
+		gp.collisionsMap[0][absX/gp.tileSize][absY/gp.tileSize] = 1;
+		gp.collisionsMap[1][absX/gp.tileSize][absY/gp.tileSize] = 1;
 		animation = new BufferedImage[15];
 		try {
 			this.image =  ImageIO.read(getClass().getResourceAsStream(package_path+image_path));
@@ -52,7 +53,8 @@ public class Door extends MyObject{
 		if(animated == true) {
 			if(animationCounter == 15) {
 				animated = false;
-				gp.collisionsMap[absX/gp.tileSize][absY/gp.tileSize] = 0;
+				gp.collisionsMap[0][absX/gp.tileSize][absY/gp.tileSize] = 0;
+				gp.collisionsMap[1][absX/gp.tileSize][absY/gp.tileSize] = 0;
 				animationCounter = 0;
 				try {
 					this.image =  ImageIO.read(getClass().getResourceAsStream(package_path+"door1_open.png"));

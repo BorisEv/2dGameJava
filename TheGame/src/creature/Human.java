@@ -13,7 +13,7 @@ public class Human extends Creature{
 		super(gp, absX, absY, speed, person_num);
 		this.folder_name = "/humans";
 		this.solidArea = new Rectangle(gp.tileSize/4, gp.tileSize/4, gp.tileSize/2,gp.tileSize/2);
-
+		
 		loadImages();
 	}
 	

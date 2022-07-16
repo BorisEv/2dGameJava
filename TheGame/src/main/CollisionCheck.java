@@ -27,8 +27,8 @@ public class CollisionCheck {
 				creature.collision = true;
 				break;
 			}
-			tile1 = gp.collisionsMap[leftCol][topRow];
-			tile2 = gp.collisionsMap[rightCol][topRow];
+			tile1 = gp.collisionsMap[gp.worldNumber-1][leftCol][topRow];
+			tile2 = gp.collisionsMap[gp.worldNumber-1][rightCol][topRow];
 			if(tile1 == 1 || tile2 == 1) {
 				creature.collision = true;
 			}
@@ -39,8 +39,8 @@ public class CollisionCheck {
 				creature.collision = true;
 				break;
 				}
-			tile1 = gp.collisionsMap[leftCol][bottomRow];
-			tile2 = gp.collisionsMap[rightCol][bottomRow];
+			tile1 = gp.collisionsMap[gp.worldNumber-1][leftCol][bottomRow];
+			tile2 = gp.collisionsMap[gp.worldNumber-1][rightCol][bottomRow];
 			if(tile1 == 1 || tile2 == 1) {
 				creature.collision = true;
 			}
@@ -51,8 +51,8 @@ public class CollisionCheck {
 				creature.collision = true;
 				break;
 			}
-			tile1 = gp.collisionsMap[leftCol][topRow];
-			tile2 = gp.collisionsMap[leftCol][bottomRow];
+			tile1 = gp.collisionsMap[gp.worldNumber-1][leftCol][topRow];
+			tile2 = gp.collisionsMap[gp.worldNumber-1][leftCol][bottomRow];
 			if(tile1 == 1 || tile2 == 1) {
 				creature.collision = true;
 			}
@@ -63,8 +63,8 @@ public class CollisionCheck {
 				creature.collision = true;
 				break;
 				}
-			tile1 = gp.collisionsMap[rightCol][topRow];
-			tile2 = gp.collisionsMap[rightCol][bottomRow];
+			tile1 = gp.collisionsMap[gp.worldNumber-1][rightCol][topRow];
+			tile2 = gp.collisionsMap[gp.worldNumber-1][rightCol][bottomRow];
 			if(tile1 == 1 || tile2 == 1) {
 				creature.collision = true;
 			}
