@@ -14,8 +14,9 @@ import object.MyObject;
 public class Player extends Human{
 	KeyHandler keyH;
 	
-	public final int playerX;
 	public final int playerY;
+	public final int playerX;
+
 	
 	public Player(GamePanel gp, KeyHandler keyH, int absX, int absY, int speed, String object_name, int person_num, int worldNumber) {
 		super(gp, absX, absY, speed, object_name, person_num,worldNumber);
